@@ -12,7 +12,7 @@ class Fasilitas extends Model
 
 	public function Ekskul()
 	{
-		return $this->hasMany('App\Ekskul','fasilitas_id');
+		return $this->hasOne('App\Ekskul','fasilitas_id');
 	}
 
 }

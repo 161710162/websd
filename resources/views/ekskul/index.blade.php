@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 
 	<div class="row">
 	<div class="container">
 	<div class="col-md-12">
 	<div class="panel panel-primary">
-		<div class="panel-heading">Data Ekskul
+		<div class="panel-heading"><center>Data Ekskul</center>
 			<div class="panel-title pull-right"><a href="{{ route('ekskul.create') }}">Tambah Data</a>
 		</div>
 	</div>

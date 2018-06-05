@@ -5,7 +5,7 @@
 	<div class="container">
 	<div class="col-md-12">
 	<div class="panel panel-primary">
-		<div class="panel-heading">Data Artikel
+		<div class="panel-heading"><center>Data Artikel</center>
 			<div class="panel-title pull-right"><a href="{{ route('artikel.create') }}">Tambah Data</a>
 		</div>
 	</div>

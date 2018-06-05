@@ -12,6 +12,6 @@ class Artikel extends Model
 
     public function Kategori()
 	{
-		return $this->belongsto('App\Kategori','kategori_id');
+		return $this->belongsTo('App\Kategori','kategori_id');
 	}
 }

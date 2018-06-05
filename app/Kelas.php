@@ -12,6 +12,6 @@ class Kelas extends Model
 
         public function Guru()
 	{
-		return $this->belongsto('App\Guru','guru_id');
+		return $this->belongsTo('App\Guru','guru_id');
 	}
 }
