@@ -39,27 +39,6 @@
                         &nbsp;
                     </ul>
 
-                    <a class="navbar-brand" href="{{ url('/artikel') }}">
-                        Artikel
-                    </a>
-                    <a class="navbar-brand" href="{{ url('/ekskul') }}">
-                        Ekskul 
-                    </a>
-                    <a class="navbar-brand" href="{{ url('/fasilitas') }}">
-                        Fasilitas
-                    </a>
-                     <a class="navbar-brand" href="{{ url('/guru') }}">
-                        Guru
-                    </a>
-                    <a class="navbar-brand" href="{{ url('/kategori') }}">
-                        Kategori
-                    </a>
-                    <a class="navbar-brand" href="{{ url('/kelas') }}">
-                        Kelas
-                    </a>
-                     
-                     
-
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->

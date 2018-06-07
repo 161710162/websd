@@ -76,7 +76,7 @@ class EkskulController extends Controller
      */
     public function edit($id)
     {
-        $ekskuls = Ekskul::findOrFail($id);
+         $ekskuls = Ekskul::findOrFail($id);
          $gurus = Guru::all();
          $selectedGuru = Ekskul::findOrFail($id)->guru_id;
          $fasilitas = Fasilitas::all();

@@ -12,7 +12,7 @@ class Ekskul extends Model
 
         public function Guru()
 	{
-		return $this->belongsToMany('App\Guru','guru_id');
+		return $this->belongsTo('App\Guru','guru_id');
 	}
 	public function Fasilitas()
 	{

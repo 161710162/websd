@@ -9,7 +9,7 @@
 			  	</div>
 			  </div>
 			  <div class="panel-body">
-			  	<form action="{{ route('guru.store') }}" method="post" >
+			  	<form action="{{ route('guru.store') }}" method="post" enctype="multipart/form-data">
 			  		{{ csrf_field() }}
 			  		<div class="form-group {{ $errors->has('nama_guru') ? ' has-error' : '' }}">
 			  			<label class="control-label">Nama Guru</label>	

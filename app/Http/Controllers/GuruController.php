@@ -45,6 +45,14 @@ class GuruController extends Controller
         $gurus->nama_guru = $request->nama_guru;
         $gurus->nip = $request->nip;
         $gurus->jabatan = $request->jabatan;
+        //upload foto
+        if ($request->hasFile('foto')){
+            $file=$request->file('foto');
+            $destinationPath=public_path().'/assets/img/fotoguru';
+            $filename=str_random(6).'_'.$file->getClientOriginalName();
+            $uploadSuccess=$file->move($destinationPath,$filename);
+            $gurus->foto=$filename;
+        }
         $gurus->save();
         return redirect()->route('guru.index');
     }
@@ -86,11 +94,34 @@ class GuruController extends Controller
             'nama_guru' => 'required|',
             'nip' => 'required|',
              'jabatan' => 'required|'
+
+             
         ]);
         $gurus = Guru::findOrFail($id);
         $gurus->nama_guru = $request->nama_guru;
         $gurus->nip = $request->nip;
         $gurus->jabatan = $request->jabatan;
+
+        //edit upload foto
+             if ($request->hasFile('foto')){
+            $file=$request->file('foto');
+            $destinationPath=public_path().'/assets/img/fotoguru';
+            $filename=str_random(6).'_'.$file->getClientOriginalName();
+            $uploadSuccess=$file->move($destinationPath,$filename);
+            $guru->foto=$filename;
+
+            //hapus foto lama,jika ada
+            if ($gurus->foto){
+                $old_foto=$gurus->foto;
+                $filepath=public_path().DIRECTORY_SEPARATOR.'/assets/img/fotoguru.DIRECTORY_SEPARATOR.$gurus->foto';
+                try{
+                    File::delete($filepath);
+                }catch (FileNotFoundException $e){
+                    //file sudah dihapus/tidak ada
+                }
+                }
+                $gurus->foto=$filename;
+            }
         $gurus->save();
         return redirect()->route('guru.index');
     }
@@ -104,6 +135,17 @@ class GuruController extends Controller
     public function destroy($id)
     {
          $gurus = Guru::findOrFail($id);
+         if ($gurus->foto){
+                $old_foto=$gurus->foto;
+                $filepath=public_path().DIRECTORY_SEPARATOR.'/assets/img/fotoguru.DIRECTORY_SEPARATOR.$gurus->foto';
+                try{
+                    File::delete($filepath);
+                }catch (FileNotFoundException $e){
+                    //file sudah dihapus/tidak ada
+                }
+                }
+                $gurus->foto=$filename;
+
          $gurus->delete();
         return redirect()->route('guru.index');
     }

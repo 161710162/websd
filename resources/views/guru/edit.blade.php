@@ -9,7 +9,7 @@
 			  	</div>
 			  </div>
 			  <div class="panel-body">
-			  	<form action="{{ route('guru.update',$gurus->id) }}" method="post" >
+			  	<form action="{{ route('guru.update',$gurus->id) }}" method="post" enctype="multipart/form-data">
 			  		<input name="_method" type="hidden" value="PATCH">
         			{{ csrf_field() }}
 			  		<div class="form-group {{ $errors->has('nama_guru') ? ' has-error' : '' }}">
