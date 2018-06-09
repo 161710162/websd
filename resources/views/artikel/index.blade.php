@@ -5,14 +5,14 @@
 	<div class="container">
 	<div class="col-md-12">
 	<div class="panel panel-primary">
-		<div class="panel-heading"><center>Data Artikel</center>
+		<div class="panel-heading"><center><b>Data Artikel</b></center>
 			<div class="panel-title pull-right"><a href="{{ route('artikel.create') }}">Tambah Data</a>
 		</div>
 	</div>
 	<div class="panel-body">
 	<div class="table-responsive">
 	<table class="table">
-	<thead>
+	<thead class="thead-dark">
 		<tr>
 					<th>No</th>
 					<th>Nama Kategori</th>

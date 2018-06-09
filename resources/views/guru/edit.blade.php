@@ -12,6 +12,21 @@
 			  	<form action="{{ route('guru.update',$gurus->id) }}" method="post" enctype="multipart/form-data">
 			  		<input name="_method" type="hidden" value="PATCH">
         			{{ csrf_field() }}
+        			<div class="form-group {{ $errors->has('foto') ? ' has-error' : '' }}">
+			  			<label class="control-label">Foto</label>
+			  			<div class="row">
+			  				<div class="col s6">
+			  					<img src="{{ asset('assets/admin/images/icon/'.$gurus->foto )}}" style="max-width: 200px; max-height: 200px; float: left;"/>
+			  				</div>
+			  			</div><br>
+			  			<input type="file" name="foto" class="form-control" value="{{ $gurus->foto }}"  required>
+			  			@if ($errors->has('foto'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('foto') }}</strong>
+                            </span>
+                        @endif
+			  		</div>
+
 			  		<div class="form-group {{ $errors->has('nama_guru') ? ' has-error' : '' }}">
 			  			<label class="control-label">Nama Guru</label>
 			  			<input type="text" name="nama_guru" class="form-control" value="{{ $gurus->nama_guru }}"  required>

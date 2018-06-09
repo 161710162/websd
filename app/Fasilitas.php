@@ -7,12 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Fasilitas extends Model
 {
     protected $table='fasilitas';
-    protected $fillable=['nama_fasilitas','jumlah','keterangan'];
+    protected $fillable=['nama_fasilitas','foto','keterangan'];
     public $timestamps=true;
-
-	public function Ekskul()
-	{
-		return $this->hasOne('App\Ekskul','fasilitas_id');
-	}
-
 }

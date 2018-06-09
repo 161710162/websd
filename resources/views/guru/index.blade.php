@@ -11,9 +11,10 @@
 			  <div class="panel-body">
 			  	<div class="table-responsive">
 				  <table class="table">
-				  	<thead>
+				  	<thead class="thead-dark">
 			  		<tr>
 			  		  <th>No</th>
+			  		  <th>Foto</th>
 					  <th>Nama Guru</th>
 					  <th>NIP</th>
 					  <th>Jabatan</th>
@@ -26,6 +27,7 @@
 				  		@foreach($gurus as $data)
 				  	  <tr>
 				    	<td>{{ $no++ }}</td>
+				    	<td><img src="{{asset('assets/admin/images/icon/'.$data->foto.'')}}" width="70" height="70"></td>
 				    	<td>{{ $data->nama_guru }}</td>
 				    	<td>{{ $data->nip }}</td>
 				    	<td>{{ $data->jabatan }}</td>

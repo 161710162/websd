@@ -38,13 +38,20 @@ class FasilitasController extends Controller
     {
          $this->validate($request,[
             'nama_fasilitas' => 'required|',
-            'jumlah' => 'required|',
+            'foto' => 'required|',
             'keterangan' => 'required|'
         ]);
         $fasilitas = new Fasilitas;
         $fasilitas->nama_fasilitas = $request->nama_fasilitas;
-        $fasilitas->jumlah = $request->jumlah;
+        $fasilitas->foto = $request->foto;
         $fasilitas->keterangan = $request->keterangan;
+       if ($request->hasFile('foto')){
+            $file=$request->file('foto');
+            $destinationPath=public_path().'assets/admin/images/icon/';
+            $filename=str_random(6).'_'.$file->getClientOriginalName();
+            $uploadSuccess= $file->move($destinationPath,$filename);
+            $fasilitas->foto= $filename;
+        }
         $fasilitas->save();
         return redirect()->route('fasilitas.index');
     }
@@ -57,8 +64,7 @@ class FasilitasController extends Controller
      */
     public function show($id)
     {
-         $fasilitas = Fasilitas::findOrFail($id);
-        return view('Fasilitas.show',compact('fasilitas'));
+         
     }
 
     /**
@@ -84,13 +90,20 @@ class FasilitasController extends Controller
     {
         $this->validate($request,[
             'nama_fasilitas' => 'required|',
-            'jumlah' => 'required|',
+            'foto' => 'required|',
             'keterangan' => 'required|'
         ]);
-        $fasilitas = Fasilitas::findOrFail($id);
+        $fasilitas = new Fasilitas;
         $fasilitas->nama_fasilitas = $request->nama_fasilitas;
-        $fasilitas->jumlah = $request->jumlah;
+        $fasilitas->foto = $request->foto;
         $fasilitas->keterangan = $request->keterangan;
+        if ($request->hasFile('foto')){
+            $file=$request->file('foto');
+            $destinationPath=public_path().'/assets/admin/images/icon/';
+            $filename=str_random(6).'_'.$file->getClientOriginalName();
+            $uploadSuccess= $file->move($destinationPath,$filename);
+            $fasilitas->foto= $filename;
+        }
         $fasilitas->save();
         return redirect()->route('fasilitas.index');
     }

@@ -16,10 +16,6 @@ class CreateEkskulsTable extends Migration
         Schema::create('ekskuls', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama_ekskul');
-            $table->unsignedInteger('guru_id');
-            $table->foreign('guru_id')->references('id')->on('gurus')->ondelete('cascade');
-            $table->unsignedInteger('fasilitas_id');
-            $table->foreign('fasilitas_id')->references('id')->on('fasilitas')->ondelete('cascade');
             $table->string('jadwal');
             $table->timestamps();
         });

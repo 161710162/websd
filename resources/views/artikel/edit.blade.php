@@ -36,15 +36,15 @@
                         @endif
 			  		</div>
 			  		
-			  		<div class="form-group {{ $errors->has('konten') ? ' has-error' : '' }}">
-			  			<label class="control-label">Konten</label>	
-			  			<input type="text" value="{{ $artikels->konten }}" name="konten" class="form-control"  required>
-			  			@if ($errors->has('konten'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('konten') }}</strong>
-                            </span>
-                        @endif
-			  		</div>
+			  		<div class="form-group {{$errors->has('konten') ? 'has-error' : ''}}">
+								<label class="control-label">Konten</label>
+								<textarea rows="5" name="konten" class="form-control" required>{{$catherings->konten}}</textarea>							@if ($errors->has('konten'))
+									<span class="help-blocks">
+										<strong>{{$errors->first('konten')}}</strong>
+									</span>
+
+								@endif
+							</div>
 
 			  		<div class="form-group {{$errors->has('tanggal') ? 'has-error' : ''}}">
 								<label class="control-label">Tanggal Update</label>

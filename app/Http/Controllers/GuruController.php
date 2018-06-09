@@ -37,6 +37,7 @@ class GuruController extends Controller
     public function store(Request $request)
     {
             $this->validate($request,[
+            'foto' => 'required|',
             'nama_guru' => 'required|',
             'nip' => 'required|',
              'jabatan' => 'required|'
@@ -48,10 +49,10 @@ class GuruController extends Controller
         //upload foto
         if ($request->hasFile('foto')){
             $file=$request->file('foto');
-            $destinationPath=public_path().'/assets/img/fotoguru';
+            $destinationPath=public_path().'/assets/admin/images/icon/';
             $filename=str_random(6).'_'.$file->getClientOriginalName();
-            $uploadSuccess=$file->move($destinationPath,$filename);
-            $gurus->foto=$filename;
+            $uploadSucces= $file->move($destinationPath,$filename);
+            $gurus->foto= $filename;
         }
         $gurus->save();
         return redirect()->route('guru.index');
@@ -103,26 +104,16 @@ class GuruController extends Controller
         $gurus->jabatan = $request->jabatan;
 
         //edit upload foto
-             if ($request->hasFile('foto')){
-            $file=$request->file('foto');
-            $destinationPath=public_path().'/assets/img/fotoguru';
-            $filename=str_random(6).'_'.$file->getClientOriginalName();
-            $uploadSuccess=$file->move($destinationPath,$filename);
-            $guru->foto=$filename;
-
-            //hapus foto lama,jika ada
-            if ($gurus->foto){
-                $old_foto=$gurus->foto;
-                $filepath=public_path().DIRECTORY_SEPARATOR.'/assets/img/fotoguru.DIRECTORY_SEPARATOR.$gurus->foto';
-                try{
-                    File::delete($filepath);
-                }catch (FileNotFoundException $e){
-                    //file sudah dihapus/tidak ada
-                }
-                }
+            if ($request->hasFile('foto')) {
+            $uploaded_foto = $request->file('foto');
+            $extension = $uploaded_foto->getClientOriginalExtension();
+            $filename = md5(time()) . '.' . $extension;
+            $destinationPath = public_path() . DIRECTORY_SEPARATOR . '/assets/admin/images/icon/';
+            $uploaded_foto->move($destinationPath, $filename);      
+                
                 $gurus->foto=$filename;
-            }
         $gurus->save();
+    }
         return redirect()->route('guru.index');
     }
 
@@ -135,17 +126,6 @@ class GuruController extends Controller
     public function destroy($id)
     {
          $gurus = Guru::findOrFail($id);
-         if ($gurus->foto){
-                $old_foto=$gurus->foto;
-                $filepath=public_path().DIRECTORY_SEPARATOR.'/assets/img/fotoguru.DIRECTORY_SEPARATOR.$gurus->foto';
-                try{
-                    File::delete($filepath);
-                }catch (FileNotFoundException $e){
-                    //file sudah dihapus/tidak ada
-                }
-                }
-                $gurus->foto=$filename;
-
          $gurus->delete();
         return redirect()->route('guru.index');
     }

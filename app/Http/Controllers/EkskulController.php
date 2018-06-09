@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Ekskul;
-use App\Guru;
-use App\Fasilitas;
 use Illuminate\Http\Request;
 
 class EkskulController extends Controller

@@ -8,13 +8,20 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            
-                            <a href="{{ route('artikel.index') }}">
-                                <i class="fas fa-copy"></i>Artikel</a>
+                            <a class="js-arrow" href="#">
+                            <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="{{ route('artikel.index') }}">Artikel</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('kategori.index') }}">Kategori Artikel</a>
+                                </li>
+                                </ul>
                         </li>
                         <li>
-                            <a href="{{ route('kelas.index') }}">
-                                <i class="fas fa-table"></i>Kelas</a>
+                            <a href="{{ route('staf.index') }}">
+                                <i class="fas fa-table"></i>Staf</a>
                         </li>
                         <li>
                             <a href="{{ route('fasilitas.index') }}">
@@ -22,64 +29,16 @@
                         </li>
                         <li>
                             <a href="{{ route('ekskul.index') }}">
-                                <i class="fas fa-calendar-alt"></i>Ekstrakulikuler</a>
+                                <i class="fas fa-tachometer-alt"></i>Ekstrakulikuler</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('prestasi.index') }}">
+                                <i class="fas fa-desktop"></i>Prestasi</a>
                         </li>
                         <li>
                             <a href="{{ route('guru.index') }}">
-                                <i class="far fa-check-square"></i>Guru</a>
+                                <i class="fas fa-calendar-alt"></i>Guru</a>
                         </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="login.html">Login</a>
-                                </li>
-                                <li>
-                                    <a href="register.html">Register</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Forget Password</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-desktop"></i>UI Elements</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="button.html">Button</a>
-                                </li>
-                                <li>
-                                    <a href="badge.html">Badges</a>
-                                </li>
-                                <li>
-                                    <a href="tab.html">Tabs</a>
-                                </li>
-                                <li>
-                                    <a href="card.html">Cards</a>
-                                </li>
-                                <li>
-                                    <a href="alert.html">Alerts</a>
-                                </li>
-                                <li>
-                                    <a href="progress-bar.html">Progress Bars</a>
-                                </li>
-                                <li>
-                                    <a href="modal.html">Modals</a>
-                                </li>
-                                <li>
-                                    <a href="switch.html">Switchs</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Grids</a>
-                                </li>
-                                <li>
-                                    <a href="fontawesome.html">Fontawesome Icon</a>
-                                </li>
-                                <li>
-                                    <a href="typo.html">Typography</a>
-                                </li>
                             </ul>
                         </li>
                     </ul>

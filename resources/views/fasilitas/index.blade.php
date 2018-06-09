@@ -15,7 +15,7 @@
 			  		<tr>
 			  		  <th>No</th>
 					  <th>Nama Fasilitas</th>
-					  <th>Jumlah</th>
+					  <th>Foto</th>
 					  <th>Keterangan</th>
 					  <th colspan="3">Action</th>
 			  		</tr>
@@ -27,7 +27,7 @@
 				  	  <tr>
 				    	<td>{{ $no++ }}</td>
 				    	<td>{{ $data->nama_fasilitas }}</td>
-				    	<td>{{ $data->jumlah }}</td>
+				    	<td><img src="{{asset('assets/admin/images/icon/'.$data->foto.'')}}" width="70" height="70"></td>
 				    	<td>{{ $data->keterangan }}</td>
 				    	
 

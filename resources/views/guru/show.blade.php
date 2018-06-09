@@ -8,6 +8,11 @@
 			  	<div class="panel-title pull-right"><a href="{{ url()->previous() }}">Kembali</a>
 			  	</div>
 			  </div>
+			  <div class="form-group">
+			  			<label class="control-label">Foto</label>	
+			  			<input type="file" name="foto" class="form-control" value="{{ $gurus->foto}}"  readonly>
+			  		</div>
+
 			  <div class="panel-body">
         			<div class="form-group">
 			  			<label class="control-label">Nama Guru</label>	

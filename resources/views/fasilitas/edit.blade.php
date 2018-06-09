@@ -22,12 +22,17 @@
                         @endif
 			  		</div>
 
-			  		<div class="form-group {{ $errors->has('jumlah') ? ' has-error' : '' }}">
-			  			<label class="control-label">Jumlah</label>
-			  			<input type="text" name="jumlah" class="form-control" value="{{ $fasilitas->jumlah }}"  required>
-			  			@if ($errors->has('jumlah'))
+			  		<div class="form-group {{ $errors->has('foto') ? ' has-error' : '' }}">
+			  			<label class="control-label">Foto</label>
+			  			<div class="row">
+			  				<div class="col s6">
+			  					<img src="{{ asset('assets/admin/images/icon/'.$fasilitas->foto )}}" style="max-width: 200px; max-height: 200px; float: left;"/>
+			  				</div>
+			  			</div><br>
+			  			<input type="file" name="foto" class="form-control" value="{{ $fasilitas->foto }}"  required>
+			  			@if ($errors->has('foto'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('jumlah') }}</strong>
+                                <strong>{{ $errors->first('foto') }}</strong>
                             </span>
                         @endif
 			  		</div>

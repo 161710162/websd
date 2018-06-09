@@ -20,7 +20,9 @@ Route::resource('artikel','ArtikelController');
 Route::resource('fasilitas','FasilitasController');
 Route::resource('guru','GuruController');
 Route::resource('ekskul','EkskulController');
-Route::resource('kelas','KelasController');
+Route::resource('staf','StafController');
+Route::resource('prestasi','PrestasiController');
+
 
 Auth::routes();
 
@@ -31,6 +33,5 @@ Route::get('cek', function () {
 });
 
 Route::group(['prefix'=>'admin','middleware'=>['auth','role:admin']], function(){
-Route::resource('kelas','KelasController');
 Route::resource('guru','GuruController');
 });
